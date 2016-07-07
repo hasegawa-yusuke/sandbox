@@ -20,13 +20,15 @@ RUN yo hubot --owner="$BOT_OWNER" --name="$BOT_NAME" --description="$BOT_DESC" -
     npm install hubot-scripts
 
 ADD . /home/hubot/node_modules/hubot-rocketchat
+ADD https://raw.githubusercontent.com/RocketChat/hubot-rocketchat/master/src/rocketchat.coffee /home/hubot/node_modules/hubot-rocketchat/src/
+ADD https://raw.githubusercontent.com/RocketChat/hubot-rocketchat/master/src/rocketchat_driver.coffee /home/hubot/node_modules/hubot-rocketchat/src/
+
 
 # hack added to get around owner issue: https://github.com/docker/docker/issues/6119
 USER root
 RUN chown hubot:hubot -R /home/hubot/node_modules/hubot-rocketchat
 USER hubot
 
-ADD https://raw.githubusercontent.com/RocketChat/hubot-rocketchat/master/src/rocketchat.coffee /home/hubot/node_modules/hubot-rocketchat/src/
 
 RUN cd /home/hubot/node_modules/hubot-rocketchat && \
     npm install && \
