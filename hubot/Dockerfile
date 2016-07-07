@@ -26,6 +26,8 @@ USER root
 RUN chown hubot:hubot -R /home/hubot/node_modules/hubot-rocketchat
 USER hubot
 
+ADD https://raw.githubusercontent.com/RocketChat/hubot-rocketchat/master/src/rocketchat.coffee /home/hubot/node_modules/hubot-rocketchat/src/
+
 RUN cd /home/hubot/node_modules/hubot-rocketchat && \
     npm install && \
     coffee -c /home/hubot/node_modules/hubot-rocketchat/src/*.coffee && \
