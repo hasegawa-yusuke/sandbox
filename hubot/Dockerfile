@@ -12,7 +12,7 @@ ENV BOT_NAME "rocketbot"
 ENV BOT_OWNER "No owner specified"
 ENV BOT_DESC "Hubot with rocketbot adapter"
 
-ENV EXTERNAL_SCRIPTS=hubot-diagnostics,hubot-help,hubot-google-images,hubot-google-translate,hubot-pugme,hubot-maps,hubot-rules,hubot-shipit,hubot-rocketchat
+ENV EXTERNAL_SCRIPTS=hubot-diagnostics,hubot-help,hubot-google-images,hubot-google-translate,hubot-pugme,hubot-maps,hubot-rules,hubot-shipit
 
 RUN yo hubot --owner="$BOT_OWNER" --name="$BOT_NAME" --description="$BOT_DESC" --defaults && \
     sed -i /heroku/d ./external-scripts.json && \
@@ -20,9 +20,11 @@ RUN yo hubot --owner="$BOT_OWNER" --name="$BOT_NAME" --description="$BOT_DESC" -
     npm install hubot-scripts
 
 ADD . /home/hubot/node_modules/hubot-rocketchat
+ADD https://raw.githubusercontent.com/RocketChat/hubot-rocketchat/master/package.json /home/hubot/node_modules/hubot-rocketchat/
 ADD https://raw.githubusercontent.com/RocketChat/hubot-rocketchat/master/src/rocketchat.coffee /home/hubot/node_modules/hubot-rocketchat/src/
 ADD https://raw.githubusercontent.com/RocketChat/hubot-rocketchat/master/src/rocketchat_driver.coffee /home/hubot/node_modules/hubot-rocketchat/src/
-
+ADD https://raw.githubusercontent.com/RocketChat/hubot-rocketchat/master/scripts/firstbot.coffee /home/hubot/node_modules/hubot-rocketchat/scripts/
+ADD https://raw.githubusercontent.com/RocketChat/hubot-rocketchat/master/scripts/package.json /home/hubot/node_modules/hubot-rocketchat/scripts/
 
 # hack added to get around owner issue: https://github.com/docker/docker/issues/6119
 USER root
