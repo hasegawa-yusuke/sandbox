@@ -6,6 +6,8 @@ MAINTAINER buildmaster@rocket.chat
 
 VOLUME /app/uploads
 
+RUN echo "--------- ${MYDB_SERVICE_HOST} -----------"
+
 RUN set -x \
  && curl -SLf "https://rocket.chat/releases/${RC_VERSION}/download" -o rocket.chat.tgz \
  && curl -SLf "https://rocket.chat/releases/${RC_VERSION}/asc" -o rocket.chat.tgz.asc \
