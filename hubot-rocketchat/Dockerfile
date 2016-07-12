@@ -28,6 +28,7 @@ RUN yo hubot --owner="$BOT_OWNER" --name="$BOT_NAME" --description="$BOT_DESC" -
 
 ADD . /home/hubot/node_modules/hubot-rocketchat
 ADD ./hubot-scripts.json /home/hubot
+ADD ./run.sh /home/hubot
 
 # hack added to get around owner issue: https://github.com/docker/docker/issues/6119
 USER root
