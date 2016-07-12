@@ -16,9 +16,9 @@ RUN set -x \
  && npm install \
  && npm cache clear
 
-ADD https://raw.githubusercontent.com/hasegawa-yusuke/sandbox/master/rocketchat/run.sh /tmp
-RUN chmod 777 /tmp/run.sh
-RUN mv /tmp/run.sh /app/bundle/
+ADD https://raw.githubusercontent.com/hasegawa-yusuke/sandbox/master/rocketchat/run.sh /app/bundle
+#RUN chmod 777 /tmp/run.sh
+#RUN mv /tmp/run.sh /app/bundle/
 
 USER rocketchat
 
