@@ -29,11 +29,13 @@ ENV MONGO_URL=mongodb://user:password@${MYDB_SERVICE_HOST}:27017/sampledb \
 
 EXPOSE 3000
 
-ADD https://raw.githubusercontent.com/hasegawa-yusuke/sandbox/master/rocketchat/run.sh /app/bundle
-RUN chmod 777 ./run.sh
+ADD https://raw.githubusercontent.com/hasegawa-yusuke/sandbox/master/rocketchat/run.sh /tmp
+RUN chmod 777 /tmp/run.sh
+RUN mv /tmp/run.sh /app/bundle/
 
 #CMD ["node", "main.js"]
 CMD ["sh", "-c", "./run.sh"]
+
 
 
 
