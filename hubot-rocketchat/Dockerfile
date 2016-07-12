@@ -4,6 +4,10 @@ MAINTAINER Rocket.Chat Team <buildmaster@rocket.chat>
 RUN npm install -g coffee-script yo generator-hubot  &&  \
 	useradd hubot -m
 
+ADD ./run.sh /tmp
+RUN chmod 888 /tmp/run.sh
+RUN mv /tmp/run.sh /home/hubot
+
 USER hubot
 
 WORKDIR /home/hubot
@@ -28,7 +32,6 @@ RUN yo hubot --owner="$BOT_OWNER" --name="$BOT_NAME" --description="$BOT_DESC" -
 
 ADD . /home/hubot/node_modules/hubot-rocketchat
 ADD ./hubot-scripts.json /home/hubot
-ADD ./run.sh /home/hubot
 
 # hack added to get around owner issue: https://github.com/docker/docker/issues/6119
 USER root
