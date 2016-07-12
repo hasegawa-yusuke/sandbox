@@ -18,10 +18,10 @@ ENV BOT_DESC "Hubot with rocketbot adapter"
 
 ENV ROCKETCHAT_USER=bot
 ENV ROCKETCHAT_PASSWORD=bot
-ENV ROCKETCHAT_ROOM=''
+ENV ROCKETCHAT_ROOM=
 ENV LISTEN_ON_ALL_PUBLIC=true
 ENV ROCKETCHAT_AUTH=password
-ENV HUBOT_JENKINS_AUTH='admin:password'
+ENV HUBOT_JENKINS_AUTH=admin:password
 
 ENV EXTERNAL_SCRIPTS=hubot-diagnostics,hubot-help,hubot-google-images,hubot-google-translate,hubot-pugme,hubot-maps,hubot-rules,hubot-shipit
 
