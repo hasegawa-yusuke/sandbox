@@ -32,4 +32,6 @@ ENV MONGO_URL=mongodb://user:password@${MYDB_SERVICE_HOST}:27017/sampledb \
 
 EXPOSE 3000
 
-CMD ["node", "main.js"]
+#CMD ["node", "main.js"]
+CMD ["sh", "-c", "env"]
+
