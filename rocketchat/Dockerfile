@@ -6,9 +6,6 @@ MAINTAINER buildmaster@rocket.chat
 
 VOLUME /app/uploads
 
-RUN sh -c "echo ------- ${MYDB_SERVICE_HOST} ----------"
-RUN sh -c "env"
-
 RUN set -x \
  && curl -SLf "https://rocket.chat/releases/${RC_VERSION}/download" -o rocket.chat.tgz \
  && curl -SLf "https://rocket.chat/releases/${RC_VERSION}/asc" -o rocket.chat.tgz.asc \
@@ -31,6 +28,8 @@ ENV MONGO_URL=mongodb://user:password@${MYDB_SERVICE_HOST}:27017/sampledb \
     Accounts_AvatarStorePath=/app/uploads
 
 EXPOSE 3000
+
+ADD https://raw.githubusercontent.com/hasegawa-yusuke/sandbox/master/rocketchat/run.sh .
 
 #CMD ["node", "main.js"]
 CMD ["sh", "-c", "env"]
