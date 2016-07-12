@@ -5,7 +5,7 @@ RUN npm install -g coffee-script yo generator-hubot  &&  \
 	useradd hubot -m
 
 ADD ./run.sh /tmp
-RUN chmod 888 /tmp/run.sh
+RUN chmod 777 /tmp/run.sh
 RUN mv /tmp/run.sh /home/hubot
 
 USER hubot
