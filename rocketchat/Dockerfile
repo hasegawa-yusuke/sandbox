@@ -29,6 +29,7 @@ ENV MONGO_URL=mongodb://user:password@${MYDB_SERVICE_HOST}:27017/sampledb \
 
 EXPOSE 3000
 
+RUN chmod -R 777 ${WORKDIR}
 ADD https://raw.githubusercontent.com/hasegawa-yusuke/sandbox/master/rocketchat/run.sh ${WORKDIR}
 RUN chmod 777 ./run.sh
 
