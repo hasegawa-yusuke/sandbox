@@ -32,5 +32,7 @@ EXPOSE 3000
 ADD https://raw.githubusercontent.com/hasegawa-yusuke/sandbox/master/rocketchat/run.sh .
 
 #CMD ["node", "main.js"]
-CMD ["sh", "-c", "env"]
+CMD ["sh", "-c", "run.sh"]
+
+
 
