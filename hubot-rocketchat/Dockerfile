@@ -21,7 +21,6 @@ ENV ROCKETCHAT_USER=bot \
      ROCKETCHAT_ROOM="" \
      LISTEN_ON_ALL_PUBLIC=true \
      ROCKETCHAT_AUTH="password"
-#     HUBOT_JENKINS_AUTH='admin:password'
 
 ENV EXTERNAL_SCRIPTS=hubot-diagnostics,hubot-help,hubot-google-images,hubot-google-translate,hubot-pugme,hubot-maps,hubot-rules,hubot-shipit
 
@@ -44,9 +43,3 @@ RUN cd /home/hubot/node_modules/hubot-rocketchat && \
 	cd /home/hubot
 
 CMD ["sh", "-c", "./run.sh"]
-
-#CMD node -e "console.log(JSON.stringify('$EXTERNAL_SCRIPTS'.split(',')))" > external-scripts.json && \
-#	npm install $(node -e "console.log('$EXTERNAL_SCRIPTS'.split(',').join(' '))") && \
-#	bin/hubot -n $BOT_NAME -a rocketchat
-
-
