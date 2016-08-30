@@ -8,6 +8,6 @@
 #
 
 # TODO: put your exec command here
+# "sleep 1000" is just a sample.
 #exec <start your server here>
-/usr/sbin/nginx -c /nginx.conf -g daemon off
-
+sleep 1000
