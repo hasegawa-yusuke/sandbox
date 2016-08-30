@@ -26,6 +26,18 @@ COPY ./.s2i/bin/ /usr/libexec/s2i
 # TODO: Drop the root user and make the content of /opt/app-root owned by user 1001
 # RUN chown -R 1001:1001 /opt/app-root
 
+# nginx sample
+RUN yum -y install epel-release; \
+    yum -y install nginx
+RUN mkdir -p /var/www; \
+    echo 'Hello, World!' > /var/www/index.html
+ADD nginx.conf /
+RUN chmod ugo+r /nginx.conf; \
+    chmod -R ugo+rw /var/www
+EXPOSE 8080
+# end nginx sample
+
+
 # This default user is created in the openshift/base-centos7 image
 USER 1001
 
