@@ -28,8 +28,7 @@ COPY ./.s2i/bin/ /usr/libexec/s2i
 # RUN chown -R 1001:1001 /opt/app-root
 
 # nginx sample
-RUN yum -y install epel-release; \
-    yum -y install nginx
+RUN yum -y install httpd 
 RUN mkdir -p /var/www; \
     echo 'Hello, World!' > /var/www/index.html
 ADD nginx.conf /
