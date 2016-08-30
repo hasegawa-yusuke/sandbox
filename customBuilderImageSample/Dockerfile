@@ -1,6 +1,7 @@
 
 # sample
-FROM registry.access.redhat.com/rhscl/s2i-base-rhel7
+#FROM registry.access.redhat.com/rhscl/s2i-base-rhel7
+FORM centos:7
 
 # TODO: Put the maintainer name in the image metadata
 # MAINTAINER Your Name <your@email.com>
