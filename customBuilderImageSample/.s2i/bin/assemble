@@ -27,5 +27,5 @@ echo "---> Building application from source..."
 # TODO: Add build steps for your application, eg npm install, bundle install
 
 # nginx sample
-echo 'Hello world' > /var/www/index.html
+echo 'Hello world from assemble script' > /var/www/index.html
 
