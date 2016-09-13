@@ -8,6 +8,7 @@
 #
 
 echo "-------------------------------- run -----------------------------------"
+exit 100
 
 # TODO: put your exec command here
 # "sleep 1000" is just a sample.
